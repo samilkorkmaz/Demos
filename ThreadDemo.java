@@ -14,6 +14,7 @@ public class ThreadDemo extends javax.swing.JFrame {
 
     private boolean isBusy;
     private Thread countTo10Thread;
+    private final Object counterLock = new Object();
 
     private final javax.swing.JButton jbSleep = new javax.swing.JButton("Sleep fo 4 seconds");
     private final javax.swing.JLabel jlStartEnd = new javax.swing.JLabel("Sleep not started");
@@ -35,8 +36,6 @@ public class ThreadDemo extends javax.swing.JFrame {
             }
         }
     }
-
-    private final Object counterLock = new Object();
 
     private class CounterThread extends Thread implements Runnable {
 
