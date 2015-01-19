@@ -10,7 +10,7 @@ import java.util.List;
  * example, when you have two Point objects with same x, y in list, there is no way to remove the second object from list by using remove(Object). What you can do is to
  * create a new class that extends Point and overrides equals() so that it checks object reference.
  *
- * @author Şamil Korkmaz
+ * @author Samil Korkmaz
  * @date January 2015
  * @copyright Public Domain
  */
