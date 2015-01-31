@@ -6,4 +6,4 @@ This repo contains demo files/projects for different problems and concepts.
 
 <b>SetListTest.java</b>: Check speed of TreeSet and ArrayList. Adds items to set and list, then finds the item with the lowest cost. ArrayList is an order of magnitude faster.
 
-<b>UpdateGUIFromAnotherThread.java</b>: Demonstrates how to update GUI from another thread. A thread increments the counter and GUI diplays it in the form of a progress bar.
+<b>UpdateGUIFromAnotherThread.java</b>: Demonstrates how to update GUI from another thread. A thread increments the counter and GUI displays it in the form of a progress bar.
