@@ -1,4 +1,4 @@
-package pathfinding;
+package pathfinding03;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -22,7 +22,7 @@ import javax.swing.JTextField;
  *
  * @author Samil Korkmaz
  * @date January 2015
- * @copyright Public Domain
+ * @license Public Domain
  */
 public class MyPanel extends JPanel {
 
@@ -45,6 +45,11 @@ public class MyPanel extends JPanel {
     private static final JTextField jtfEndRowIndex = new JTextField("5");
     private static final JTextField jtfEndColIndex = new JTextField("7");
     private static final JButton jbCalculate = new JButton("calculate");
+    private static AStarPathFinder aStarPathFinder = new AStarPathFinder();
+    
+    public static AStarPathFinder getAStarPathFinder() {
+        return aStarPathFinder;
+    }
 
     public MyPanel() {
         super();
@@ -92,7 +97,7 @@ public class MyPanel extends JPanel {
         jbCalculate.addActionListener((ActionEvent ae) -> {
             Node startNode = new Node(null, Integer.parseInt(jtfStartRowIndex.getText()), Integer.parseInt(jtfStartColIndex.getText()));
             Node endNode = new Node(null, Integer.parseInt(jtfEndRowIndex.getText()), Integer.parseInt(jtfEndColIndex.getText()));
-            this.path = AStarPathFinding.calcPath(map, startNode, endNode);
+            this.path = aStarPathFinder.calcPath(map, startNode, endNode);
             printPath(this.path);
             repaint();
         });
@@ -140,7 +145,7 @@ public class MyPanel extends JPanel {
             int iStartCol = Integer.parseInt(jtfStartColIndex.getText());
             Node startNode = new Node(null, iStartRow, iStartCol);
             Node endNode = createNode(rect);
-            path = AStarPathFinding.calcPath(map, startNode, endNode);
+            path = aStarPathFinder.calcPath(map, startNode, endNode);
             MyPanel.printPath(path);
             repaint();
 
@@ -150,7 +155,7 @@ public class MyPanel extends JPanel {
     }
 
     public static void printPath(List<Node> path) {
-        if (AStarPathFinding.isPathFound()) {
+        if (aStarPathFinder.isPathFound()) {
             System.out.print("path (row, col):");
             for (Node node : path) {
                 System.out.print("(" + node.getRowIndex() + ", " + node.getColIndex() + "), ");
@@ -180,7 +185,7 @@ public class MyPanel extends JPanel {
             int iCol = i1D % mapNCols;
             int iRow = (i1D - iCol) / mapNCols;
 
-            if (map[iRow][iCol] == AStarPathFinding.WALL) {
+            if (map[iRow][iCol] == AStarPathFinder.WALL) {
                 g2.setColor(Color.BLACK);
             } else {
                 if (path != null) {

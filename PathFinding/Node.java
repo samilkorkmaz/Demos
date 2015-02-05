@@ -1,4 +1,4 @@
-package pathfinding;
+package pathfinding03;
 
 /**
  * A node is a cell/point on path that lies on a 2D grid (map).
